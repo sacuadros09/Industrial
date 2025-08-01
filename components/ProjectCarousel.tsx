@@ -221,13 +221,16 @@ export default function ProjectCarousel() {
       >
         <div className="flex items-center justify-between mb-8">
           <h3 className="text-3xl font-light text-black">Proyectos</h3>
-          <div className="flex gap-2">
-            <CarouselPrevious className="relative h-10 w-10 border-gray-300 hover:border-gray-400 transition-colors" />
-            <CarouselNext className="relative h-10 w-10 border-gray-300 hover:border-gray-400 transition-colors" />
-          </div>
         </div>
 
-        <CarouselContent className="-ml-4">
+        <div className="relative">
+          {/* Flecha izquierda - completamente afuera */}
+          <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 border-gray-300 hover:border-gray-400 transition-colors bg-white/90 hover:bg-white shadow-lg" />
+          
+          {/* Flecha derecha - completamente afuera */}
+          <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-12 w-12 border-gray-300 hover:border-gray-400 transition-colors bg-white/90 hover:bg-white shadow-lg" />
+          
+          <CarouselContent className="-ml-4">
           {proyectos.map((proyecto) => (
             <CarouselItem
               key={proyecto.id}
@@ -269,9 +272,9 @@ export default function ProjectCarousel() {
                   </div>
                 </CardContent>
               </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+            </CarouselItem>            ))}
+          </CarouselContent>
+        </div>
       </Carousel>
     </div>
   );
