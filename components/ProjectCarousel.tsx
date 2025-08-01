@@ -107,49 +107,35 @@ const ImageCarousel = ({
     setCurrentImageIndex((prev) => (prev + 1) % imagenes.length);
   };
 
-  const prevImage = () => {
-    setCurrentImageIndex(
-      (prev) => (prev - 1 + imagenes.length) % imagenes.length
-    );
+  const handleImageClick = () => {
+    if (imagenes.length > 1) {
+      nextImage();
+    }
   };
 
   return (
     <div className="relative group">
-      <div className="relative overflow-hidden rounded-lg">
+      <div 
+        className="relative overflow-hidden rounded-lg cursor-pointer"
+        onClick={handleImageClick}
+      >
         <img
           src={`${imagenes[currentImageIndex]}?height=300&width=400`}
           alt={`${titulo} - Imagen ${currentImageIndex + 1}`}
-          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-64 object-cover transition-all duration-700 group-hover:scale-105"
         />
 
         {/* Overlay con controles */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
 
-        {/* Controles de navegación */}
+        {/* Indicador de click si hay múltiples imágenes */}
         {imagenes.length > 1 && (
-          <>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevImage();
-              }}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextImage();
-              }}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </>
+          <div className="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Click para cambiar
+          </div>
         )}
 
-        {/* Indicadores de puntos */}
+        {/* Indicadores de puntos - solo se muestran si hay más de una imagen */}
         {imagenes.length > 1 && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
             {imagenes.map((_, index) => (
@@ -177,7 +163,6 @@ export default function ProjectCarousel() {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
-  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     if (!api) {
@@ -192,25 +177,21 @@ export default function ProjectCarousel() {
     })
   }, [api])
 
-  // Autoplay effect - solo funciona cuando no hay hover
+  // Autoplay effect - se mueve cada 5 segundos
   useEffect(() => {
-    if (!api || isHovered) {
+    if (!api) {
       return
     }
 
     const autoplay = setInterval(() => {
       api.scrollNext()
-    }, 4000) // Cambia cada 4 segundos
+    }, 5000) // Cambia cada 5 segundos
 
     return () => clearInterval(autoplay)
-  }, [api, isHovered])
+  }, [api])
 
   return (
-    <div 
-      className="max-w-7xl mx-auto px-6"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="max-w-7xl mx-auto px-6">
       <Carousel
         setApi={setApi}
         opts={{
