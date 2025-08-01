@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { type CarouselApi } from "@/components/ui/carousel";
 
 const proyectos = [
   {
@@ -173,9 +174,45 @@ const ImageCarousel = ({
 };
 
 export default function ProjectCarousel() {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
+
+  // Autoplay effect - solo funciona cuando no hay hover
+  useEffect(() => {
+    if (!api || isHovered) {
+      return
+    }
+
+    const autoplay = setInterval(() => {
+      api.scrollNext()
+    }, 4000) // Cambia cada 4 segundos
+
+    return () => clearInterval(autoplay)
+  }, [api, isHovered])
+
   return (
-    <div className="max-w-7xl mx-auto px-6">
+    <div 
+      className="max-w-7xl mx-auto px-6"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Carousel
+        setApi={setApi}
         opts={{
           align: "start",
           loop: true,
