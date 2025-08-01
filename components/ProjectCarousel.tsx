@@ -17,7 +17,7 @@ const proyectos = [
     id: 1,
     titulo: "LÁMPARA RENDER",
     descripcion:
-      "Lámpara de escritorio con diseño contemporáneo y estructura esférica que permite rotación total del foco. Fabricada con materiales como madera y metal, combina funcionalidad con estética minimalista. Ideal para espacios modernos de trabajo o lectura.",
+      "Lámpara de escritorio con diseño contemporáneo y estructura esférica que permite rotación total del foco. Fabricada con materiales como madera y metal.",
     imagenes: ["/lamp.jpeg"],
     tags: ["Iluminación", "Mobiliario", "Oficina"],
   },
@@ -33,7 +33,7 @@ const proyectos = [
     id: 3,
     titulo: "RASKAT",
     descripcion:
-      "Centro modular para gatos que integra zonas de descanso, juego y rascado en una sola estructura compacta. Diseñado con materiales reciclables y revestimientos resistentes, ofrece una solución estética y funcional para el enriquecimiento ambiental felino.",
+      "Centro modular para gatos que integra zonas de descanso, juego y rascado en una sola estructura compacta. Diseñado con materiales reciclables y revestimientos resistentes.",
     imagenes: [
       "/raskat.jpeg",
       "/raskat2.jpeg",
@@ -47,7 +47,7 @@ const proyectos = [
     id: 4,
     titulo: "LOVEBLEAS RENDER",
     descripcion:
-      "Render de diseño interior para un local de venta de obleas, con una propuesta visual inspirada en el estilo retro americano. La distribución del espacio y el mobiliario están pensados para optimizar la atención al cliente en un ambiente colorido y acogedor.",
+      "Render de diseño interior para un local de venta de obleas, con una propuesta visual inspirada en el estilo retro americano.",
     imagenes: [
       "/lovebleas1.jpeg",
       "/lovebleas2.jpeg",
@@ -60,7 +60,7 @@ const proyectos = [
     id: 5,
     titulo: "PUESTO ITINERANTE LOVEBLEAS",
     descripcion:
-      "Carrito de venta de obleas con diseño compacto e identidad visual llamativa, inspirado en una clásica combi. Concebido para ferias, plazas o espacios públicos, integra espacio de trabajo, almacenamiento y exhibición de productos.",
+      "Carrito de venta de obleas con diseño compacto e identidad visual llamativa, inspirado en una clásica combi. Concebido para ferias, plazas o espacios públicos.",
     imagenes: [
       "/carrito.jpeg",
       "/carrito1.jpeg",
@@ -73,7 +73,7 @@ const proyectos = [
     id: 6,
     titulo: "SCOOBY DOO RENDER",
     descripcion:
-      "Representación digital en cristal de la icónica figura de Scooby-Doo. Este render explora el juego de transparencias, reflejos y refracciones en materiales vítreos, destacando el contraste entre un personaje animado y una estética escultórica refinada.",
+      "Representación digital en cristal de la icónica figura de Scooby-Doo. Este render explora el juego de transparencias, reflejos y refracciones en materiales vítreos.",
     imagenes: ["/perrito.jpeg"],
     tags: ["Render 3D", "Visualización", "Personajes"],
   },
