@@ -9,14 +9,14 @@ Un portafolio moderno y responsive construido con Next.js 15, TypeScript y Tailw
 - **Tailwind CSS** - Framework de CSS para estilos
 - **Radix UI** - Componentes accesibles y sin estilo
 - **Lucide React** - Iconos modernos
-- **Framer Motion** - Animaciones fluidas (si se implementa)
+- **Embla Carousel** - Carouseles interactivos y táctiles
 
 ## 📦 Instalación
 
 1. Clona el repositorio:
 
 ```bash
-git clone <tu-repositorio>
+git clone https://github.com/sacuadros09/Industrial.git
 cd industrial-designer-portfolio
 ```
 
@@ -30,13 +30,7 @@ npm install
 yarn install
 ```
 
-3. Crea el archivo de variables de entorno:
-
-```bash
-cp .env.example .env.local
-```
-
-4. Ejecuta el proyecto en modo desarrollo:
+3. Ejecuta el proyecto en modo desarrollo:
 
 ```bash
 pnpm dev
@@ -102,6 +96,7 @@ El proyecto puede desplegarse en cualquier plataforma que soporte Node.js:
 - ✅ Optimizado para SEO
 - ✅ Performance optimizada
 - ✅ TypeScript para mejor desarrollo
+- ✅ Carouseles interactivos para proyectos e imágenes
 
 ## 🎨 Personalización
 
